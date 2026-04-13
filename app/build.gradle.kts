@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.a214188_radhiahjamalludin_drnazatul_lab02"
+    namespace = "com.example.a214188_radhiahjamalludin_drnazatul_lab03"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.a214188_radhiahjamalludin_drnazatul_lab01"
+        applicationId = "com.example.a214188_radhiahjamalludin_drnazatul_lab03"
         minSdk = 24
         targetSdk = 35
         versionCode = 1

@@ -10,12 +10,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.A214188_RadhiahJamalludin_DrNazatul_Lab01">
+        android:theme="@style/Theme.A214188_RadhiahJamalludin_DrNazatul_Lab03">
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.A214188_RadhiahJamalludin_DrNazatul_Lab01">
+            android:theme="@style/Theme.A214188_RadhiahJamalludin_DrNazatul_Lab03">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
