@@ -1,4 +1,4 @@
-package com.example.a214188_radhiahjamalludin_drnazatul_lab03.ui.theme
+package com.example.a214188_radhiahjamalludin_drnazatul_lab04.ui.theme
 
 import android.app.Activity
 import android.os.Build
@@ -98,7 +98,7 @@ data class ColorFamily(
 )
 
 @Composable
-fun A214188_RadhiahJamalludin_DrNazatul_Lab03Theme(
+fun A214188_RadhiahJamalludin_DrNazatul_Lab04Theme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,

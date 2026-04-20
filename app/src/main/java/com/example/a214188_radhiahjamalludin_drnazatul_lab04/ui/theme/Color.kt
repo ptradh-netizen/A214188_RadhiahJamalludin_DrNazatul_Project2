@@ -1,8 +1,8 @@
-package com.example.a214188_radhiahjamalludin_drnazatul_lab03.ui.theme
+package com.example.a214188_radhiahjamalludin_drnazatul_lab04.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val primaryLight = Color(0xFFFFEB3B)
+val primaryLight = Color(0xFF9C27B0)
 val onPrimaryLight = Color(0xFFFFFFFF)
 val primaryContainerLight = Color(0xFFEDDCFF)
 val onPrimaryContainerLight = Color(0xFF523C73)
@@ -38,10 +38,13 @@ val surfaceContainerLight = Color(0xFFF3ECF4)
 val surfaceContainerHighLight = Color(0xFFEDE6EE)
 val surfaceContainerHighestLight = Color(0xFFE7E0E8)
 
-// --- WARNA UNTUK HIGHLIGHT CARIAN ---
-val SearchHighlightColor = Color(0xFFFF5722) // Pink untuk Carian
+// --- WARNA TUKAR MANUAL DI SINI ---
+val SearchHighlightColor = Color(0xFF0A25BE) 
+val UnifiedButtonColor = Color(0xFFFFEB3B) 
+val UnifiedButtonTextColor = Color(0xFF090909) // Warna tulisan SEMUA butang (Tukar manual di sini)
+val DetailFrameColor = Color(0xFF730ED7)
 
-val primaryDark = Color(0xFFFFEB3B)
+val primaryDark = Color(0xFF9C27B0)
 val onPrimaryDark = Color(0xFF3B255B)
 val primaryContainerDark = Color(0xFF523C73)
 val onPrimaryContainerDark = Color(0xFFEDDCFF)
@@ -88,7 +91,6 @@ val onSecondaryContainerDarkMediumContrast = Color(0xFF000000)
 val tertiaryDarkMediumContrast = Color(0xFFFFD1D9)
 val onTertiaryDarkMediumContrast = Color(0xFF3E1A23)
 val tertiaryContainerDarkMediumContrast = Color(0xFFB7838D)
-val onTertiaryContainerDarkMediumContrast = Color(0xFF000000)
 val errorDarkMediumContrast = Color(0xFFFFD2CC)
 val onErrorDarkMediumContrast = Color(0xFF540003)
 val errorContainerDarkMediumContrast = Color(0xFFFF5449)
