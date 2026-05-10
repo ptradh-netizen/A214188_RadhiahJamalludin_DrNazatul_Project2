@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">A214188_RadhiahJamalludin_DrNazatul_Lab04</string>
+    <string name="app_name">A214188_RadhiahJamalludin_DrNazatul_Project1</string>
+    <!-- SDG 4 Problem Statement Strings -->
+    <string name="sdg_title">Why Smart Learning? (SDG 4)</string>
+    <string name="sdg_problem"><b>Problem:</b> Students often use multiple platforms for course notes and quizzes, resulting in disorganized learning.</string>
+    <string name="sdg_impact"><b>Impact:</b> This makes it difficult to monitor performance and manage study time effectively.</string>
+    <string name="sdg_solution"><b>Solution:</b> This one-stop platform records your selected courses and quiz score history for smarter, more systematic learning.</string>
 </resources>
