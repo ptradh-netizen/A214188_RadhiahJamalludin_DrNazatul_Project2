@@ -1,7 +1,7 @@
-package com.example.a214188_radhiahjamalludin_drnazatul_project1.data
+package com.example.a214188_radhiahjamalludin_drnazatul_lab05.data
 
-import com.example.a214188_radhiahjamalludin_drnazatul_project1.R
-import com.example.a214188_radhiahjamalludin_drnazatul_project1.model.Course
+import com.example.a214188_radhiahjamalludin_drnazatul_lab05.R
+import com.example.a214188_radhiahjamalludin_drnazatul_lab05.model.Course
 
 object DataSource {
     val courses = listOf(

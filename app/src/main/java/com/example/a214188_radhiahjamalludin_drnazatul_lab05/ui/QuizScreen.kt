@@ -1,4 +1,4 @@
-package com.example.a214188_radhiahjamalludin_drnazatul_project1.ui
+package com.example.a214188_radhiahjamalludin_drnazatul_lab05.ui
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -17,11 +17,11 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.a214188_radhiahjamalludin_drnazatul_project1.model.Course
-import com.example.a214188_radhiahjamalludin_drnazatul_project1.ui.theme.UnifiedButtonColor
-import com.example.a214188_radhiahjamalludin_drnazatul_project1.ui.theme.UnifiedButtonTextColor
-import com.example.a214188_radhiahjamalludin_drnazatul_project1.ui.theme.WhiteText
-import com.example.a214188_radhiahjamalludin_drnazatul_project1.ui.theme.WhiteTextSecondary
+import com.example.a214188_radhiahjamalludin_drnazatul_lab05.model.Course
+import com.example.a214188_radhiahjamalludin_drnazatul_lab05.ui.theme.UnifiedButtonColor
+import com.example.a214188_radhiahjamalludin_drnazatul_lab05.ui.theme.UnifiedButtonTextColor
+import com.example.a214188_radhiahjamalludin_drnazatul_lab05.ui.theme.WhiteText
+import com.example.a214188_radhiahjamalludin_drnazatul_lab05.ui.theme.WhiteTextSecondary
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

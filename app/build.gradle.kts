@@ -2,14 +2,15 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "com.example.a214188_radhiahjamalludin_drnazatul_project1"
+    namespace = "com.example.a214188_radhiahjamalludin_drnazatul_lab05"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.a214188_radhiahjamalludin_drnazatul_project1"
+        applicationId = "com.example.a214188_radhiahjamalludin_drnazatul_lab05"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -51,6 +52,11 @@ dependencies {
     implementation(libs.compose.material.icons.extended)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    // Room
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

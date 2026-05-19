@@ -1,4 +1,4 @@
-package com.example.a214188_radhiahjamalludin_drnazatul_project1.ui
+package com.example.a214188_radhiahjamalludin_drnazatul_lab05.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -10,6 +10,8 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -18,10 +20,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.a214188_radhiahjamalludin_drnazatul_project1.ui.theme.UnifiedButtonColor
-import com.example.a214188_radhiahjamalludin_drnazatul_project1.ui.theme.UnifiedButtonTextColor
-import com.example.a214188_radhiahjamalludin_drnazatul_project1.ui.theme.WhiteText
-import com.example.a214188_radhiahjamalludin_drnazatul_project1.ui.theme.WhiteTextSecondary
+import com.example.a214188_radhiahjamalludin_drnazatul_lab05.ui.theme.UnifiedButtonColor
+import com.example.a214188_radhiahjamalludin_drnazatul_lab05.ui.theme.UnifiedButtonTextColor
+import com.example.a214188_radhiahjamalludin_drnazatul_lab05.ui.theme.WhiteText
+import com.example.a214188_radhiahjamalludin_drnazatul_lab05.ui.theme.WhiteTextSecondary
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -29,9 +31,13 @@ fun QuizHistoryScreen(
     navController: NavController,
     viewModel: LearningViewModel
 ) {
-    val completedQuizzes = viewModel.quizHistory
-    val availableQuizzes = viewModel.learningPlan.filter { course ->
-        !viewModel.isCourseCompleted(course.id)
+    // MENGGUNAKAN collectAsState untuk mengambil data dari Room
+    val completedQuizzes by viewModel.quizHistory.collectAsState()
+    val learningPlan by viewModel.learningPlan.collectAsState()
+
+    // Logik untuk menapis kuiz yang belum dijawab
+    val availableQuizzes = learningPlan.filter { course ->
+        completedQuizzes.none { it.courseId == course.id }
     }
 
     Scaffold(
@@ -56,10 +62,10 @@ fun QuizHistoryScreen(
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            // --- COMPLETED SECTION ---
+            // --- SEKSYEN COMPLETED ---
             Card(
                 modifier = Modifier.fillMaxWidth(),
-                colors = CardDefaults.cardColors(containerColor = Color(0xFFFF9800)), // Orange
+                colors = CardDefaults.cardColors(containerColor = Color(0xFFFF9800)),
                 shape = RoundedCornerShape(12.dp)
             ) {
                 Text(
@@ -98,10 +104,10 @@ fun QuizHistoryScreen(
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            // --- AVAILABLE SECTION ---
+            // --- SEKSYEN AVAILABLE ---
             Card(
                 modifier = Modifier.fillMaxWidth(),
-                colors = CardDefaults.cardColors(containerColor = Color(0xFFFF9800)), // Orange
+                colors = CardDefaults.cardColors(containerColor = Color(0xFFFF9800)),
                 shape = RoundedCornerShape(12.dp)
             ) {
                 Text(

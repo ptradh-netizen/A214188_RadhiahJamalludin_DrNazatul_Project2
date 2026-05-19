@@ -1,4 +1,4 @@
-package com.example.a214188_radhiahjamalludin_drnazatul_project1.ui.theme
+package com.example.a214188_radhiahjamalludin_drnazatul_lab05.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
@@ -13,19 +13,24 @@ val ErrorRed = Color(0xFFF44336)
 
 // 2. Button & Interactive Colors
 val UnifiedButtonColor = Color(0xFFFFEB3B)  // Yellow
-val UnifiedButtonTextColor = Color(0xFF000000)
+val UnifiedButtonTextColor = Color(0xFF130F0F)
 val SearchHighlightColor = Color(0xFF0A25BE)
 val SuccessGreen = Color(0xFF4CAF50)
 val InfoBlue = Color(0xFF2196F3)
 
 // 3. Surface & Background Colors
-val AppBackgroundDark = Color(0xFF0B0613)      // Main App Background
-val CardBackground = Color(0xFF16111F)
-val WelcomeCardGray = Color(0xFF575555)
+val AppBackgroundDark = Color(0xFF100F0F)      // Main App Background
+val CardBackground = Color(0xFF9C27B0)
+val WelcomeCardGray = Color(0xFF155AC2)
 val PurplePromo = Color(0xFF9C27B0)
 val SearchBoxBackground = Color(0xFFFFFFFF)
 val SdgCardBackground = Color(0xFFEEDE80)
 val WarningOrange = Color(0xFFFF9800)
+
+// Tambahan warna untuk StatCards
+val StatCardPink = Color(0xFFE91E63)
+val StatCardPurple = Color(0xFF9C27B0)
+val StatCardOrange = Color(0xFFFF9800)
 
 // 4. Decorative Colors
 val DividerColor = Color(0x1AFFFFFF)
@@ -76,9 +81,9 @@ val surfaceContainerLight = Color(0xFFF3ECF4)
 val surfaceContainerHighLight = Color(0xFFEDE6EE)
 val surfaceContainerHighestLight = Color(0xFFE7E0E8)
 
-val primaryDark = Color(0xFF9C27B0)
+val primaryDark = Color(0xFF4CAF50)
 val onPrimaryDark = Color(0xFF3B255B)
-val primaryContainerDark = Color(0xFF523C73)
+val primaryContainerDark = Color(0xFF6714E3)
 val onPrimaryContainerDark = Color(0xFFEDDCFF)
 val secondaryDark = Color(0xFFFFB784)
 val onSecondaryDark = Color(0xFF4F2500)

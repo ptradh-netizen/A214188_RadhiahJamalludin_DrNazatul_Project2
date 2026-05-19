@@ -1,4 +1,4 @@
-package com.example.a214188_radhiahjamalludin_drnazatul_project1.ui.theme
+package com.example.a214188_radhiahjamalludin_drnazatul_lab05.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
@@ -6,7 +6,7 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.example.a214188_radhiahjamalludin_drnazatul_project1.R
+import com.example.a214188_radhiahjamalludin_drnazatul_lab05.R
 
 val Montserrat = FontFamily(
     Font(R.font.montserrat_variablefont_wght, FontWeight.Normal)

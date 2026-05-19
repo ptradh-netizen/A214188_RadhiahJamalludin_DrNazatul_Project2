@@ -1,4 +1,4 @@
-package com.example.a214188_radhiahjamalludin_drnazatul_project1
+package com.example.a214188_radhiahjamalludin_drnazatul_lab05
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -9,31 +9,35 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.a214188_radhiahjamalludin_drnazatul_project1.ui.*
-import com.example.a214188_radhiahjamalludin_drnazatul_project1.ui.theme.A214188_RadhiahJamalludin_DrNazatul_Project1Theme
+import com.example.a214188_radhiahjamalludin_drnazatul_lab05.ui.*
+import com.example.a214188_radhiahjamalludin_drnazatul_lab05.ui.theme.A214188_RadhiahJamalludin_DrNazatul_Project1Theme
 
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            A214188_RadhiahJamalludin_DrNazatul_Project1Theme(dynamicColor = false) {
-                SmartLearningApp()
+//Bahagian 1: Class MainActivity
+class MainActivity : ComponentActivity() {  //entry point utk Android guna Jetpack Compose
+    override fun onCreate(savedInstanceState: Bundle?) { //fungsi (fun) pertama kali cipta aktiviti
+        super.onCreate(savedInstanceState) //panggil fungsi dari kelas induk
+        enableEdgeToEdge() //membolehkan aplikasi paparkan seluruh skrin
+        setContent { //UI bermula, gantikan fail XML
+            A214188_RadhiahJamalludin_DrNazatul_Project1Theme(dynamicColor = false) { //ikut theme yg ditetapkan
+                SmartLearningApp() //paparkan compose fungsi SmartLearningApp()
             }
         }
     }
 }
 
+//Bahagian 2: SmartLearningApp (Navigasi)
 @Composable
-fun SmartLearningApp(
-    viewModel: LearningViewModel = viewModel()
-) {
-    val navController = rememberNavController()
+fun SmartLearningApp() {
+    // MENGGUNAKAN Factory supaya data Room Database boleh diakses dengan betul
+    val viewModel: LearningViewModel = viewModel(factory = LearningViewModel.Factory)
+    val navController = rememberNavController() //kawal pergerakan ant skrin
 
-    NavHost(
+    NavHost(  //bekas(container) utk semua skrin
         navController = navController,
-        startDestination = "search"
+        startDestination = "search" //skrin permulaan
     ) {
+        //Bahagian 3: Laluan Skrin (Routes)
+        
         // 1. Search Screen (Home)
         composable(route = "search") {
             SearchScreen(navController = navController, viewModel = viewModel)
@@ -42,7 +46,7 @@ fun SmartLearningApp(
         // 2. Quiz Screen
         composable(route = "quiz/{courseId}") { backStackEntry ->
             val courseId = backStackEntry.arguments?.getString("courseId")?.toIntOrNull() ?: 0
-            val course = com.example.a214188_radhiahjamalludin_drnazatul_project1.data.DataSource.courses.find { it.id == courseId }
+            val course = com.example.a214188_radhiahjamalludin_drnazatul_lab05.data.DataSource.courses.find { it.id == courseId }
             course?.let {
                 QuizScreen(
                     navController = navController,
@@ -77,3 +81,5 @@ fun SmartLearningApp(
         }
     }
 }
+// Projek ini menggunakan Factory untuk memastikan ViewModel mendapat repository yang betul.
+// Tanpa Factory, aplikasi mungkin akan blank atau crash kerana gagal mengakses database.

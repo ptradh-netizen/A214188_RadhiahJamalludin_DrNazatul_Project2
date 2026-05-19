@@ -5,4 +5,31 @@
     <string name="sdg_problem"><b>Problem:</b> Students often use multiple platforms for course notes and quizzes, resulting in disorganized learning.</string>
     <string name="sdg_impact"><b>Impact:</b> This makes it difficult to monitor performance and manage study time effectively.</string>
     <string name="sdg_solution"><b>Solution:</b> This one-stop platform records your selected courses and quiz score history for smarter, more systematic learning.</string>
+
+    <!-- Strings untuk Reset Data -->
+    <string name="reset_button">Reset All Data</string>
+    <string name="reset_dialog_title">Reset All Data?</string>
+    <string name="reset_dialog_message">Are you sure you want to delete all courses and quiz history? This action cannot be undone.</string>
+    <string name="reset_confirm">Yes, Delete All</string>
+    <string name="reset_cancel">Cancel</string>
+
+    <!-- <string name="app_name">Smart Learning Lab 05</string> -->
+
+    <!-- <string name="sdg_title">SDG 4: Quality Education</string> -->
+
+    <!-- <string name="sdg_problem">Banyak pelajar menghadapi kesukaran untuk mengesan kemajuan
+        pembelajaran mereka secara sistematik.
+    </string> -->
+
+    <!-- <string name="sdg_impact">Ini menyebabkan penurunan motivasi dan pencapaian akademik yang tidak
+        menentu.
+    </string> -->
+
+    <!-- <string name="sdg_solution">Aplikasi ini membantu pelajar mengurus pelan pembelajaran dan
+        menguji kefahaman melalui kuiz interaktif.
+    </string> -->
+
+    <!-- <string name="reset_dialog_message">Adakah anda pasti mahu memadam semua kursus dan sejarah
+        kuiz? Tindakan ini tidak boleh diundur.
+    </string> -->
 </resources>

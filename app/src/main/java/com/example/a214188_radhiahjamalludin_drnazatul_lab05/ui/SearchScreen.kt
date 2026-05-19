@@ -1,10 +1,9 @@
-package com.example.a214188_radhiahjamalludin_drnazatul_project1.ui
+package com.example.a214188_radhiahjamalludin_drnazatul_lab05.ui
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.gestures.snapping.SnapPosition
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -12,7 +11,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.Assignment
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material3.*
@@ -28,11 +26,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.a214188_radhiahjamalludin_drnazatul_project1.R
-import com.example.a214188_radhiahjamalludin_drnazatul_project1.ui.theme.*
-import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.text.SpanStyle
+import com.example.a214188_radhiahjamalludin_drnazatul_lab05.R
+import com.example.a214188_radhiahjamalludin_drnazatul_lab05.ui.theme.*
 
 @Composable
 fun SearchScreen(
@@ -45,10 +40,12 @@ fun SearchScreen(
     var highlightedCourse by remember { mutableStateOf<String?>(null) }
     var searchStatus by remember { mutableStateOf("Ready to search") }
     
-    val selectedCourses = viewModel.learningPlan
+    // MENGGUNAKAN collectAsState untuk Room Database
+    val selectedCourses by viewModel.learningPlan.collectAsState()
+    val quizResults by viewModel.quizHistory.collectAsState()
 
     Scaffold(
-        containerColor = AppBackgroundDark
+        containerColor = Color(0xFF155AC2)
     ) { innerPadding ->
         Column(
             modifier = modifier
@@ -97,8 +94,18 @@ fun SearchScreen(
 
             if (selectedCourses.isEmpty()) {
                 SDGProblemCard()
-
-                Box(modifier = Modifier.weight(1f).fillMaxWidth(), contentAlignment = Alignment.Center) {
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxWidth()
+                        .padding(vertical = 20.dp)
+                        .background(
+                            color= WelcomeCardGray.copy(alpha = 0.5f),
+                            shape = RoundedCornerShape(24.dp)
+                        )
+                        .padding(16.dp),
+                    contentAlignment = Alignment.Center
+                ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Text(
                             text = "Please choose course in your profile first",
@@ -182,7 +189,10 @@ fun SearchScreen(
                     filtered.forEach { course ->
                         var expanded by remember { mutableStateOf(false) }
                         val isHighlighted = highlightedCourse != null && course.name.contains(highlightedCourse!!, ignoreCase = true)
-                        val isCompleted = viewModel.isCourseCompleted(course.id)
+                        
+                        // Semak status kuiz dari quizResults StateFlow
+                        val quizInfo = quizResults.find { it.courseId == course.id }
+                        val isCompleted = quizInfo != null
 
                         Card(
                             modifier = Modifier.fillMaxWidth().animateContentSize().clickable { expanded = !expanded },
@@ -220,7 +230,7 @@ fun SearchScreen(
                                     
                                     if (isCompleted) {
                                         Text(
-                                            "Quiz completed! Score: ${viewModel.getCourseScore(course.id)}/30",
+                                            "Quiz completed! Score: ${quizInfo?.score}/30",
                                             color = WhiteText,
                                             style = MaterialTheme.typography.bodyMedium
                                         )
@@ -231,11 +241,14 @@ fun SearchScreen(
                                         onClick = { navController.navigate("quiz/${course.id}") },
                                         modifier = Modifier.fillMaxWidth().height(45.dp),
                                         shape = RoundedCornerShape(8.dp),
-                                        colors = ButtonDefaults.buttonColors(containerColor = UnifiedButtonColor)
+                                        colors = ButtonDefaults.buttonColors(
+                                            containerColor = Color(0xFF0EA814),
+                                            contentColor = Color.White
+                                        )
                                     ) {
-                                        Icon(Icons.Default.PlayArrow, contentDescription = null, tint = UnifiedButtonTextColor)
+                                        Icon(Icons.Default.PlayArrow, contentDescription = null, tint = Color.White)
                                         Spacer(Modifier.width(8.dp))
-                                        Text(if (isCompleted) "Retake Quiz" else "Take Quiz Now", color = UnifiedButtonTextColor, fontWeight = FontWeight.Bold)
+                                        Text(if (isCompleted) "Retake Quiz" else "Take Quiz Now", color = Color.White, fontWeight = FontWeight.Bold)
                                     }
                                 }
                             }
