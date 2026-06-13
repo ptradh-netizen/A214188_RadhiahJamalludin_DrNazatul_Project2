@@ -35,13 +35,14 @@
             line-height: 1.6;
             color: var(--text-main);
             background-color: var(--bg-light);
+            -webkit-text-size-adjust: 100%;
         }
 
-        /* Sticky Navigation Bar Bar */
+        /* Sticky Navigation Bar - Fully Responsive */
         header {
             position: sticky;
             top: 0;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
             box-shadow: var(--shadow-sm);
             z-index: 1000;
@@ -51,26 +52,10 @@
         nav {
             max-width: 1200px;
             margin: 0 auto;
-            display: block;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: 1.2rem 2rem;
-        }
-
-        .nav-container {
-            display: table;
-            width: 100%;
-        }
-
-        .nav-logo-cell {
-            display: table-cell;
-            vertical-align: middle;
-            width: 40%;
-        }
-
-        .nav-links-cell {
-            display: table-cell;
-            vertical-align: middle;
-            width: 60%;
-            text-align: right;
         }
 
         .nav-logo {
@@ -79,12 +64,14 @@
             color: var(--primary-blue);
             text-decoration: none;
             letter-spacing: -0.5px;
+            flex-shrink: 0;
         }
 
         .nav-links {
             list-style: none;
-            display: inline-flex;
-            gap: 1.8rem;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
         }
 
         .nav-links a {
@@ -99,16 +86,15 @@
             color: var(--accent-blue);
         }
 
-        /* Premium Hero / Home Section */
+        /* Premium Responsive Hero / Home Section */
         #home {
             background: radial-gradient(circle at 80% 20%, #1e40af 0%, var(--primary-dark) 100%);
             color: var(--white);
-            padding: 7rem 2rem;
+            padding: 6rem 2rem;
             position: relative;
             overflow: hidden;
         }
 
-        /* Grid Pattern Overlay untuk impak digital */
         #home::after {
             content: '';
             position: absolute;
@@ -123,29 +109,26 @@
             margin: 0 auto;
             position: relative;
             z-index: 2;
-        }
-
-        .hero-table {
-            display: table;
-            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 3rem;
         }
 
         .hero-left {
-            display: table-cell;
-            width: 65%;
-            vertical-align: middle;
-            padding-right: 3rem;
+            flex: 1;
         }
 
         .hero-right {
-            display: table-cell;
-            width: 35%;
-            vertical-align: middle;
-            text-align: center;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 350px;
         }
 
         .hero-container h1 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             margin-bottom: 0.6rem;
             font-weight: 800;
             letter-spacing: -1px;
@@ -156,15 +139,15 @@
         }
 
         .hero-meta {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: #93c5fd;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             font-weight: 500;
         }
 
         .intro-box {
             background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
+            padding: 1.8rem;
             border-radius: var(--radius);
             backdrop-filter: blur(10px);
             text-align: justify;
@@ -182,20 +165,19 @@
             font-weight: 700;
         }
 
-        /* Reka Bentuk Grafik Telefon Pintar (UI Mockup) */
+        /* Smartphone UI Mockup Graphic */
         .phone-mockup {
-            display: inline-block;
             background: #1f2937;
             border: 4px solid #4b5563;
             border-radius: 40px;
             padding: 12px;
             box-shadow: var(--shadow-lg), 0 0 40px rgba(59,130,246,0.15);
-            width: 280px;
+            width: 260px;
             text-align: left;
         }
 
         .phone-notch {
-            width: 110px;
+            width: 100px;
             height: 18px;
             background: #4b5563;
             margin: -12px auto 12px;
@@ -205,15 +187,15 @@
         .phone-screen {
             background: #0b0f19;
             border-radius: 28px;
-            padding: 22px 14px;
-            min-height: 390px;
+            padding: 20px 12px;
+            min-height: 360px;
             border: 1px solid #374151;
         }
 
         .phone-icon-box {
-            width: 65px;
-            height: 65px;
-            margin: 25px auto 15px;
+            width: 60px;
+            height: 60px;
+            margin: 20px auto 15px;
             background: var(--accent-green);
             border-radius: 50%;
             display: flex;
@@ -224,42 +206,42 @@
 
         .phone-app-title {
             font-weight: 800;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             color: #ffffff;
             text-align: center;
             margin-bottom: 4px;
         }
 
         .phone-app-tag {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #64748b;
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             font-weight: 500;
         }
 
         .phone-widget {
             background: rgba(255,255,255,0.04);
             border-radius: 12px;
-            padding: 12px;
-            margin-bottom: 12px;
-            font-size: 0.75rem;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 0.72rem;
             color: #3b82f6;
             border: 1px solid rgba(59,130,246,0.15);
             font-weight: 600;
         }
 
-        /* Section Global Layout */
+        /* Global Section Layout */
         section {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 6rem 2rem;
+            padding: 5rem 2rem;
         }
 
         section h2 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             color: var(--primary-blue);
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             position: relative;
             padding-bottom: 0.6rem;
             font-weight: 800;
@@ -271,40 +253,23 @@
             position: absolute;
             left: 0;
             bottom: 0;
-            width: 70px;
+            width: 60px;
             height: 5px;
             background-color: var(--accent-blue);
             border-radius: 3px;
         }
 
-        /* Layout Grid Sistem Kad */
-        .grid-container {
-            display: block;
-            width: 100%;
+        /* Flexible & Responsive CSS Grid Framework */
+        .labs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
         }
 
-        .grid-table {
-            display: table;
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 2rem;
-            margin: -2rem;
-        }
-
-        .grid-row {
-            display: table-row;
-        }
-
-        .grid-cell {
-            display: table-cell;
-            width: 33.33%;
-            vertical-align: top;
-        }
-
-        .project-cell {
-            display: table-cell;
-            width: 50%;
-            vertical-align: top;
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
         }
 
         /* Card Component Premium Layout */
@@ -314,6 +279,8 @@
             overflow: hidden;
             box-shadow: var(--shadow-md);
             border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
             height: 100%;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
@@ -328,6 +295,7 @@
             width: 100%;
             padding-top: 56.25%; /* 16:9 Aspect Ratio */
             background-color: #000;
+            flex-shrink: 0;
         }
 
         .video-container iframe {
@@ -341,10 +309,13 @@
 
         .card-content {
             padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .card-title {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             color: var(--primary-blue);
             margin-bottom: 0.6rem;
             font-weight: 700;
@@ -354,7 +325,7 @@
         .card-desc {
             font-size: 0.95rem;
             color: var(--text-main);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
         .card-reflection {
@@ -366,9 +337,10 @@
             border-radius: 0 8px 8px 0;
             font-style: italic;
             text-align: justify;
+            margin-top: auto; /* Push to bottom of content area */
         }
 
-        /* Project Specific Meta Layout */
+        /* Project Specific Layouts */
         .project-meta {
             margin-bottom: 1.2rem;
             font-size: 0.95rem;
@@ -401,7 +373,7 @@
             background-color: #111827;
         }
 
-        /* Reflection & Journey Text Justify */
+        /* Reflection Page Layout */
         .reflection-layout {
             background-color: var(--white);
             padding: 2.5rem;
@@ -413,7 +385,7 @@
             color: var(--text-main);
         }
 
-        /* Skills Badges Framework */
+        /* Skills Layout */
         .skills-container {
             background-color: var(--white);
             padding: 2.5rem;
@@ -438,7 +410,7 @@
             border: 1px solid #bfdbfe;
         }
 
-        /* Resources Styling Layout */
+        /* Resources Layout */
         .resources-layout {
             background-color: var(--white);
             padding: 2.5rem;
@@ -469,7 +441,7 @@
             text-align: justify;
         }
 
-        /* Footer Branding */
+        /* Footer */
         footer {
             background-color: var(--primary-dark);
             color: #94a3b8;
@@ -479,251 +451,259 @@
             border-top: 4px solid var(--primary-blue);
         }
 
-        /* Responsive Breakdowns */
+        /* ==========================================================================
+           BREAKPOINTS RESPONSID (Taktik Pakar untuk Skrin Mudah Alih Telefon)
+           ========================================================================== */
+        
         @media (max-width: 1024px) {
-            .hero-left, .hero-right, .grid-cell, .project-cell {
-                display: block !important;
-                width: 100% !important;
-                padding-right: 0 !important;
-                margin-bottom: 2rem;
+            .labs-grid {
+                grid-template-columns: repeat(2, 1fr); /* Tukar jadi 2 lajur pada tablet */
             }
-            .grid-table {
-                display: block !important;
-                margin: 0 !important;
-                border-spacing: 0 !important;
-            }
-            .hero-right {
-                margin-top: 2rem;
-            }
-            .hero-container h1 {
-                font-size: 2.3rem;
-            }
-            .nav-logo-cell, .nav-links-cell {
-                display: block;
-                width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            /* Menu Navigasi Menyusun ke bawah */
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
                 text-align: center;
             }
-            .nav-links-cell {
-                margin-top: 1rem;
+            .nav-links {
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            /* Hero Section bertukar susunan Menegak */
+            .hero-layout {
+                flex-direction: column;
+                text-align: center;
+                gap: 2.5rem;
+            }
+            .hero-right {
+                width: 100%; /* Penuhkan skrin telefon */
+            }
+            .hero-container h1 {
+                font-size: 2.2rem;
+            }
+            .intro-box {
+                padding: 1.5rem;
+            }
+
+            /* Semua Grid Projek & Lab Dipaksa Menjadi 1 Lajur Sahaja (Kemas & Elon) */
+            .labs-grid, .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            section {
+                padding: 4rem 1rem; /* Kurangkan padding tepi pada skrin fon */
+            }
+            section h2 {
+                font-size: 1.7rem;
+                margin-bottom: 2rem;
+            }
+            .reflection-layout, .skills-container, .resources-layout {
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- Sticky Navigation Bar -->
     <header>
         <nav>
-            <div class="nav-container">
-                <div class="nav-logo-cell">
-                    <a href="#home" class="nav-logo">Radhiah e-Portfolio</a>
-                </div>
-                <div class="nav-links-cell">
-                    <ul class="nav-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#labs">Labs</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#reflection">Reflection</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#resources">Resources</a></li>
-                    </ul>
-                </div>
-            </div>
+            <a href="#home" class="nav-logo">Radhiah e-Portfolio</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#labs">Labs</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#reflection">Reflection</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
         </nav>
     </header>
 
+    <!-- Home / Hero Section (Fully Mobile Responsive) -->
     <section id="home" style="max-width: 100%;">
         <div class="hero-layout">
-            <div class="hero-table">
-                
-                <div class="hero-left">
-                    <div class="hero-container">
-                        <h1>RADHIAH BINTI JAMALLUDIN</h1>
-                        <p class="hero-meta">Matric No: A214188 | Programme: Software Engineering | Instructor: Dr. Nazatul</p>
-                        
-                        <div class="intro-box">
-                            <h3>Introduction</h3>
-                            <p>Smart Learning is an innovative Android application designed to help students manage their academic plans and monitor their learning performance systematically. The application integrates local storage (Room) and cloud services (Firebase & Retrofit) to provide fast data access while delivering daily learning tips to motivate users. In addition, it utilizes device sensors to help ensure a conducive learning environment for users.</p>
-                        </div>
+            
+            <!-- Bahagian Teks Maklumat -->
+            <div class="hero-left">
+                <div class="hero-container">
+                    <h1>RADHIAH BINTI JAMALLUDIN</h1>
+                    <p class="hero-meta">Matric No: A214188 | Programme: Software Engineering | Instructor: Dr. Nazatul</p>
+                    
+                    <div class="intro-box">
+                        <h3>Introduction</h3>
+                        <p>Smart Learning is an innovative Android application designed to help students manage their academic plans and monitor their learning performance systematically. The application integrates local storage (Room) and cloud services (Firebase & Retrofit) to provide fast data access while delivering daily learning tips to motivate users. In addition, it utilizes device sensors to help ensure a conducive learning environment for users.</p>
+                    </div>
 
-                        <div class="intro-box" style="margin-bottom: 0;">
-                            <h3>SDG Alignment</h3>
-                            <p><strong>SDG 4: Quality Education</strong> - This application empowers students with digital tools to independently organize their curriculum, track academic progress through quizzes, and conveniently access educational tips that promote lifelong learning.</p>
-                        </div>
+                    <div class="intro-box" style="margin-bottom: 0;">
+                        <h3>SDG Alignment</h3>
+                        <p><strong>SDG 4: Quality Education</strong> - This application empowers students with digital tools to independently organize their curriculum, track academic progress through quizzes, and conveniently access educational tips that promote lifelong learning.</p>
                     </div>
                 </div>
-
-                <div class="hero-right">
-                    <div class="phone-mockup">
-                        <div class="phone-notch"></div>
-                        <div class="phone-screen">
-                            <div class="phone-icon-box">
-                                <svg width="34" height="34" viewBox="0 0 24 24" fill="#ffffff"><path d="M17.523 15.3414C17.0422 15.3414 16.6509 14.9501 16.6509 14.4693C16.6509 13.9885 17.0422 13.5972 17.523 13.5972C18.0038 13.5972 18.3951 13.9885 18.3951 14.4693C18.3951 14.9501 18.0038 15.3414 17.523 15.3414ZM6.47702 15.3414C5.99622 15.3414 5.60492 14.9501 5.60492 14.4693C5.60492 13.9885 5.99622 13.5972 6.47702 13.5972C6.95783 13.5972 7.34912 13.9885 7.34912 14.4693C7.34912 14.9501 6.95783 15.3414 6.47702 15.3414ZM17.8633 10.6552L19.9835 8.53503C20.154 8.36458 20.154 8.08779 19.9835 7.91734C19.8131 7.74689 19.5363 7.74689 19.3658 7.91734L17.1678 10.1154C15.6881 9.43125 13.9431 9.04944 12 9.04944C10.0569 9.04944 8.31193 9.43125 6.83222 10.1154L4.63417 7.91734C4.46372 7.74689 4.18693 7.74689 4.01648 7.91734C3.84603 8.08779 3.84603 8.36458 4.01648 8.53503L6.13668 10.6552C3.62646 12.0463 1.91684 14.5432 1.70471 17.5111H22.2953C22.0832 14.5432 20.3735 12.0463 17.8633 10.6552Z"/></svg>
-                            </div>
-                            <div class="phone-app-title">Smart Learning</div>
-                            <div class="phone-app-tag">SDG 4: Quality Education App</div>
-                            
-                            <div class="phone-widget">✔ Room Local Database: OK</div>
-                            <div class="phone-widget" style="color: #10b981; border-color: rgba(16,185,129,0.2);">✔ Firebase Firestore: Connected</div>
-                            <div class="phone-widget" style="color: #f59e0b; border-color: rgba(245,158,11,0.2);">☀ Ambient Light Sensor: Active</div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
+
+            <!-- Bahagian Grafik Mockup Telefon (Menyusun di bawah teks pada Mobile) -->
+            <div class="hero-right">
+                <div class="phone-mockup">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="phone-icon-box">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="#ffffff"><path d="M17.523 15.3414C17.0422 15.3414 16.6509 14.9501 16.6509 14.4693C16.6509 13.9885 17.0422 13.5972 17.523 13.5972C18.0038 13.5972 18.3951 13.9885 18.3951 14.4693C18.3951 14.9501 18.0038 15.3414 17.523 15.3414ZM6.47702 15.3414C5.99622 15.3414 5.60492 14.9501 5.60492 14.4693C5.60492 13.9885 5.99622 13.5972 6.47702 13.5972C6.95783 13.5972 7.34912 13.9885 7.34912 14.4693C7.34912 14.4693 6.95783 15.3414 6.47702 15.3414ZM17.8633 10.6552L19.9835 8.53503C20.154 8.36458 20.154 8.08779 19.9835 7.91734C19.8131 7.74689 19.5363 7.74689 19.3658 7.91734L17.1678 10.1154C15.6881 9.43125 13.9431 9.04944 12 9.04944C10.0569 9.04944 8.31193 9.43125 6.83222 10.1154L4.63417 7.91734C4.46372 7.74689 4.18693 7.74689 4.01648 7.91734C3.84603 8.08779 3.84603 8.36458 4.01648 8.53503L6.13668 10.6552C3.62646 12.0463 1.91684 14.5432 1.70471 17.5111H22.2953C22.0832 14.5432 20.3735 12.0463 17.8633 10.6552Z"/></svg>
+                        </div>
+                        <div class="phone-app-title">Smart Learning</div>
+                        <div class="phone-app-tag">SDG 4: Quality Education App</div>
+                        
+                        <div class="phone-widget">✔ Room Local Database: OK</div>
+                        <div class="phone-widget" style="color: #10b981; border-color: rgba(16,185,129,0.2);">✔ Firebase Firestore: Connected</div>
+                        <div class="phone-widget" style="color: #f59e0b; border-color: rgba(245,158,11,0.2);">☀ Ambient Light Sensor: Active</div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
+    <!-- Labs Section (Responsive Grid) -->
     <section id="labs">
         <h2>Laboratory Work</h2>
-        <div class="grid-container">
-            <div class="grid-table">
-                
-                <div class="grid-row">
-                    <div class="grid-cell">
-                        <div class="card">
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/KvN_Prl-I_Q" allowfullscreen></iframe>
-                            </div>
-                            <div class="card-content">
-                                <div class="card-title">Lab 1: UI Design</div>
-                                <p class="card-desc">Exploration of user interface layouts using declarative UI mechanisms.</p>
-                                <div class="card-reflection">
-                                    This lab helped me understand the fundamentals of Android user interface design using Jetpack Compose. I learned how to create visually appealing layouts and organize UI components effectively to improve user experience. The knowledge gained from this lab formed the foundation for developing the Smart Learning application.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="grid-cell">
-                        <div class="card">
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/8uhklU0YhV8" allowfullscreen></iframe>
-                            </div>
-                            <div class="card-content">
-                                <div class="card-title">Lab 2: Interaction</div>
-                                <p class="card-desc">Implementing dynamic element triggers and active interactive states.</p>
-                                <div class="card-reflection">
-                                    Through this lab, I learned how to implement user interactions such as button clicks, input handling, and state management in Android applications. These features enabled the application to respond dynamically to user actions. The skills acquired were useful for creating interactive learning and quiz functionalities in the project.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="grid-cell">
-                        <div class="card">
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/P83i_nv6ytw" allowfullscreen></iframe>
-                            </div>
-                            <div class="card-content">
-                                <div class="card-title">Lab 3: Material Design</div>
-                                <p class="card-desc">Applying modern design principles to provide standardized presentation.</p>
-                                <div class="card-reflection">
-                                    This lab introduced the principles of Material Design and how they can be applied to create consistent and modern user interfaces. I learned to use Material components, themes, and layouts to enhance usability and visual appeal. Applying these concepts improved the overall look and feel of the Smart Learning application.
-                                </div>
-                            </div>
-                        </div>
+        <div class="labs-grid">
+            
+            <!-- Lab 1 -->
+            <div class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/KvN_Prl-I_Q" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">Lab 1: UI Design</div>
+                    <p class="card-desc">Exploration of user interface layouts using declarative UI mechanisms.</p>
+                    <div class="card-reflection">
+                        This lab helped me understand the fundamentals of Android user interface design using Jetpack Compose. I learned how to create visually appealing layouts and organize UI components effectively to improve user experience. The knowledge gained from this lab formed the foundation for developing the Smart Learning application.
                     </div>
                 </div>
-
-                <div class="grid-row">
-                    <div class="grid-cell">
-                        <div class="card" style="margin-top: 2rem;">
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/xH3gHZ_mhfE" allowfullscreen></iframe>
-                            </div>
-                            <div class="card-content">
-                                <div class="card-title">Lab 4: Navigation</div>
-                                <p class="card-desc">Configuring backstacks and single-activity navigation flows between screens.</p>
-                                <div class="card-reflection">
-                                    In this lab, I learned how to implement navigation between multiple screens using the Navigation Component in Jetpack Compose. This knowledge allowed me to create a seamless user experience when moving between different sections of the application. The navigation structure became an important part of organizing the app's features effectively.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="grid-cell">
-                        <div class="card" style="margin-top: 2rem;">
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/_EdQG0L1dr8" allowfullscreen></iframe>
-                            </div>
-                            <div class="card-content">
-                                <div class="card-title">Lab 5: Local Database</div>
-                                <p class="card-desc">Implementing architecture-ready offline data structures and entities.</p>
-                                <div class="card-reflection">
-                                    This lab provided practical experience in using Room Database for local data storage and management. I learned how to create entities, data access objects (DAOs), and database operations to persist user data efficiently. The implementation of Room was essential for storing academic plans and quiz history within the Smart Learning application.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="grid-cell"></div>
-                </div>
-
             </div>
+
+            <!-- Lab 2 -->
+            <div class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/8uhklU0YhV8" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">Lab 2: Interaction</div>
+                    <p class="card-desc">Implementing dynamic element triggers and active interactive states.</p>
+                    <div class="card-reflection">
+                        Through this lab, I learned how to implement user interactions such as button clicks, input handling, and state management in Android applications. These features enabled the application to respond dynamically to user actions. The skills acquired were useful for creating interactive learning and quiz functionalities in the project.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab 3 -->
+            <div class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/P83i_nv6ytw" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">Lab 3: Material Design</div>
+                    <p class="card-desc">Applying modern design principles to provide standardized presentation.</p>
+                    <div class="card-reflection">
+                        This lab introduced the principles of Material Design and how they can be applied to create consistent and modern user interfaces. I learned to use Material components, themes, and layouts to enhance usability and visual appeal. Applying these concepts improved the overall look and feel of the Smart Learning application.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab 4 -->
+            <div class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/xH3gHZ_mhfE" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">Lab 4: Navigation</div>
+                    <p class="card-desc">Configuring backstacks and single-activity navigation flows between screens.</p>
+                    <div class="card-reflection">
+                        In this lab, I learned how to implement navigation between multiple screens using the Navigation Component in Jetpack Compose. This knowledge allowed me to create a seamless user experience when moving between different sections of the application. The navigation structure became an important part of organizing the app's features effectively.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab 5 -->
+            <div class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/_EdQG0L1dr8" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">Lab 5: Local Database</div>
+                    <p class="card-desc">Implementing architecture-ready offline data structures and entities.</p>
+                    <div class="card-reflection">
+                        This lab provided practical experience in using Room Database for local data storage and management. I learned how to create entities, data access objects (DAOs), and database operations to persist user data efficiently. The implementation of Room was essential for storing academic plans and quiz history within the Smart Learning application.
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
+    <!-- Projects Section (Responsive Grid) -->
     <section id="projects">
         <h2>Development Projects</h2>
-        <div class="grid-container">
-            <div class="grid-table">
-                <div class="grid-row">
+        <div class="projects-grid">
+            
+            <!-- Project 1 -->
+            <div class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/54Wl9Ey_go8" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">Project 1: Smart Learning (Core Features)</div>
                     
-                    <div class="project-cell">
-                        <div class="card">
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/54Wl9Ey_go8" allowfullscreen></iframe>
-                            </div>
-                            <div class="card-content">
-                                <div class="card-title">Project 1: Smart Learning (Core Features)</div>
-                                
-                                <div class="project-meta">
-                                    <span class="meta-label">Problem Statement:</span>
-                                    Many students struggle to manage their learning activities efficiently due to the lack of a centralized platform for educational resources, self-assessment, and progress tracking. As a result, students often find it difficult to monitor their academic performance, review past learning outcomes, and stay motivated throughout their learning journey.
-                                </div>
-
-                                <div class="card-reflection">
-                                    <span class="meta-label" style="display:inline; margin-bottom:0;">Lessons Learned:</span>
-                                    Through the development of Smart Learning, I learned how to design and implement a multi-screen Android application using Jetpack Compose and Navigation. I gained hands-on experience in creating educational features such as quiz management, score tracking, quiz history recording, and resource searching while ensuring smooth navigation between screens. This project also enhanced my understanding of user-centered design, application architecture, and the importance of developing digital tools that support SDG 4: Quality Education.
-                                </div>
-
-                                <a href="https://github.com/ptradh-netizen/A214188_RadhiahJamalludin_DrNazatul_Project1" class="btn-github" target="_blank">
-                                    View Project 1 Repository
-                                </a>
-                            </div>
-                        </div>
+                    <div class="project-meta">
+                        <span class="meta-label">Problem Statement:</span>
+                        Many students struggle to manage their learning activities efficiently due to the lack of a centralized platform for educational resources, self-assessment, and progress tracking. As a result, students often find it difficult to monitor their academic performance, review past learning outcomes, and stay motivated throughout their learning journey.
                     </div>
 
-                    <div class="project-cell">
-                        <div class="card">
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/1bQBnBddGo4" allowfullscreen></iframe>
-                            </div>
-                            <div class="card-content">
-                                <div class="card-title">Project 2: Smart Learning (Advanced Features)</div>
-                                
-                                <div class="project-meta">
-                                    <span class="meta-label">Problem Statement:</span>
-                                    Students often struggle to maintain a structured study plan and stay motivated while lacking a centralized platform that tracks both local progress and community achievements. Additionally, many learners are unaware of environmental factors, such as poor lighting conditions, which can negatively affect their focus and eye health during long study sessions.
-                                </div>
-
-                                <div class="card-reflection">
-                                    <span class="meta-label" style="display:inline; margin-bottom:0;">Lessons Learned:</span>
-                                    Through this project, I mastered the integration of a "single source of truth" by combining local data persistence via Room with real-time cloud synchronization using Firebase and Retrofit. I also gained valuable experience in utilizing hardware sensors to improve user well-being and learned how to implement the MVVM architecture to manage complex states in a modern Jetpack Compose application.
-                                </div>
-
-                                <a href="https://github.com/ptradh-netizen/A214188_RadhiahJamalludin_DrNazatul_Project2" class="btn-github" target="_blank">
-                                    View Project 2 Repository
-                                </a>
-                            </div>
-                        </div>
+                    <div class="card-reflection">
+                        <span class="meta-label" style="display:inline; margin-bottom:0;">Lessons Learned:</span>
+                        Through the development of Smart Learning, I learned how to design and implement a multi-screen Android application using Jetpack Compose and Navigation. I gained hands-on experience in creating educational features such as quiz management, score tracking, quiz history recording, and resource searching while ensuring smooth navigation between screens. This project also enhanced my understanding of user-centered design, application architecture, and the importance of developing digital tools that support SDG 4: Quality Education.
                     </div>
 
+                    <a href="https://github.com/ptradh-netizen/A214188_RadhiahJamalludin_DrNazatul_Project1" class="btn-github" target="_blank">
+                        View Project 1 Repository
+                    </a>
                 </div>
             </div>
+
+            <!-- Project 2 -->
+            <div class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/1bQBnBddGo4" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">Project 2: Smart Learning (Advanced Features)</div>
+                    
+                    <div class="project-meta">
+                        <span class="meta-label">Problem Statement:</span>
+                        Students often struggle to maintain a structured study plan and stay motivated while lacking a centralized platform that tracks both local progress and community achievements. Additionally, many learners are unaware of environmental factors, such as poor lighting conditions, which can negatively affect their focus and eye health during long study sessions.
+                    </div>
+
+                    <div class="card-reflection">
+                        <span class="meta-label" style="display:inline; margin-bottom:0;">Lessons Learned:</span>
+                        Through this project, I mastered the integration of a "single source of truth" by combining local data persistence via Room with real-time cloud synchronization using Firebase and Retrofit. I also gained valuable experience in utilizing hardware sensors to improve user well-being and learned how to implement the MVVM architecture to manage complex states in a modern Jetpack Compose application.
+                    </div>
+
+                    <a href="https://github.com/ptradh-netizen/A214188_RadhiahJamalludin_DrNazatul_Project2" class="btn-github" target="_blank">
+                        View Project 2 Repository
+                    </a>
+                </div>
+            </div>
+
         </div>
     </section>
 
+    <!-- Reflection Section Layout -->
     <section id="reflection">
         <h2>Reflection & Learning Journey</h2>
         <div class="reflection-layout">
@@ -731,6 +711,7 @@
         </div>
     </section>
 
+    <!-- Skills Section Layout -->
     <section id="skills">
         <h2>Skills & Tech Stack</h2>
         <div class="skills-container">
@@ -748,6 +729,7 @@
         </div>
     </section>
 
+    <!-- Resources Section Layout -->
     <section id="resources">
         <h2>Resources & Credits</h2>
         <div class="resources-layout">
@@ -765,6 +747,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p>Radhiah Binti Jamalludin | Matric: A214188 | Software Engineering e-Portfolio &copy; 2026</p>
     </footer>
