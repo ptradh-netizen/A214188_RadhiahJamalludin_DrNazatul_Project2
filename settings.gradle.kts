@@ -22,5 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "A214188_RadhiahJamalludin_DrNazatul_Lab05"
+rootProject.name = "A214188_RadhiahJamalludin_DrNazatul_Project2"
 include(":app")

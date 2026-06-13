@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "141146944723",
+    "project_id": "learningplanproject2",
+    "storage_bucket": "learningplanproject2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:141146944723:android:11c7e23369f41a150a5026",
+        "android_client_info": {
+          "package_name": "com.example.a214188_radhiahjamalludin_drnazatul_project2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUpogqtn31F3DGkgGsIMqfXOg2qZwDcZQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
