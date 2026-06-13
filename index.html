@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radhiah Jamalludin | Mobile App Development e-Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --primary-light: #eff6ff;
+            --secondary-color: #3b82f6;
+            --text-dark: #1f2937;
+            --text-light: #4b5563;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        /* Sticky Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: var(--white);
+            box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero / Home Section */
+        #home {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0f172a 100%);
+            color: var(--white);
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .hero-meta {
+            font-size: 1.1rem;
+            color: #93c5fd;
+            margin-bottom: 2rem;
+        }
+
+        .intro-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: var(--radius);
+            backdrop-filter: blur(8px);
+            text-align: left;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .intro-box h3 {
+            margin-bottom: 0.75rem;
+            color: #fca5a5;
+        }
+
+        /* Section Global Layout */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        /* Grid Framework for Cards */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1max));
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
+        .card {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .card-reflection {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            background-color: var(--primary-light);
+            padding: 1rem;
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 0 6px 6px 0;
+            margin-top: auto;
+            font-style: italic;
+        }
+
+        /* Project Specific Styles */
+        .project-meta {
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .meta-label {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .btn-github {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #24292e;
+            color: var(--white);
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            transition: background-color 0.2s ease;
+            gap: 0.5rem;
+        }
+
+        .btn-github:hover {
+            background-color: #1a1e22;
+        }
+
+        /* Reflection & Journey Row Layout */
+        .reflection-layout {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Skills Badge Layout */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-badge {
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid #dbeafe;
+        }
+
+        /* Resources List Styles */
+        .resources-layout {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid #e2e8f0;
+        }
+
+        .resources-list {
+            list-style-position: inside;
+            margin-bottom: 1.5rem;
+            padding-left: 0.5rem;
+        }
+
+        .resources-list li {
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .acknowledgement {
+            background-color: #f1f5f9;
+            padding: 1.25rem;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* Footer Customization */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        @media (max-width: 640px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            #home {
+                padding: 4rem 1rem 3rem;
+            }
+            .hero-container h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navigation Bar -->
+    <header>
+        <nav>
+            <a href="#home" class="nav-logo">Radhiah e-Portfolio</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#labs">Labs</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#reflection">Reflection</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home / Hero Section -->
+    <section id="home" style="max-width: 100%; padding: 6rem 0 4rem;">
+        <div class="hero-container">
+            <h1>RADHIAH BINTI JAMALLUDIN</h1>
+            <p class="hero-meta">Matric No: A214188 | Programme: Software Engineering | Instructor: Dr. Nazatul</p>
+            
+            <div class="intro-box">
+                <h3>Introduction</h3>
+                <p>Smart Learning is an innovative Android application designed to help students manage their academic plans and monitor their learning performance systematically. The application integrates local storage (Room) and cloud services (Firebase & Retrofit) to provide fast data access while delivering daily learning tips to motivate users. In addition, it utilizes device sensors to help ensure a conducive learning environment for users.</p>
+            </div>
+
+            <div class="intro-box" style="margin-bottom: 0;">
+                <h3>SDG Alignment</h3>
+                <p><strong>SDG 4: Quality Education</strong> - This application empowers students with digital tools to independently organize their curriculum, track academic progress through quizzes, and conveniently access educational tips that promote lifelong learning.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Labs Section -->
+    <section id="labs">
+        <h2>Laboratory Work</h2>
+        <div class="grid-container">
+            
+            <!-- Lab 1 -->
+            <div class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/KvN_Prl-I_Q" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">Lab 1: UI Design</div>
+                    <p class="card-desc">Exploration of user interface layouts using declarative UI mechanisms.</p>
+                    <div class="card-reflection">
+                        This lab helped me understand the fundamentals of Android user interface design using Jetpack Compose. I learned how to create visually appealing layouts and organize UI components effectively to improve user experience. The knowledge gained from this lab formed the foundation for developing the Smart Learning application.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab 2 -->
+            <div class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/8uhklU0YhV8" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">Lab 2: Interaction</div>
+                    <p class="card-desc">Implementing dynamic element triggers and active interactive states.</p>
+                    <div class="card-reflection">
+                        Through this lab, I learned how to implement user interactions such as button clicks, input handling, and state management in Android applications. These features enabled the application to respond dynamically to user actions. The skills acquired were useful for creating interactive learning and quiz functionalities in the project.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab 3 -->
+            <div class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/P83i_nv6ytw" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">Lab 3: Material Design</div>
+                    <p class="card-desc">Applying modern design principles to provide standardized and uniform presentation.</p>
+                    <div class="card-reflection">
+                        This lab introduced the principles of Material Design and how they can be applied to create consistent and modern user interfaces. I learned to use Material components, themes, and layouts to enhance usability and visual appeal. Applying these concepts improved the overall look and feel of the Smart Learning application.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab 4 -->
+            <div class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/xH3gHZ_mhfE" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">Lab 4: Navigation</div>
+                    <p class="card-desc">Configuring backstacks and single-activity navigation flows between multiple screens.</p>
+                    <div class="card-reflection">
+                        In this lab, I learned how to implement navigation between multiple screens using the Navigation Component in Jetpack Compose. This knowledge allowed me to create a seamless user experience when moving between different sections of the application. The navigation structure became an important part of organizing the app's features effectively.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab 5 -->
+            <div class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/_EdQG0L1dr8" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">Lab 5: Local Database (Room)</div>
+                    <p class="card-desc">Implementing architecture-ready offline data structures and entities.</p>
+                    <div class="card-reflection">
+                        This lab provided practical experience in using Room Database for local data storage and management. I learned how to create entities, data access objects (DAOs), and database operations to persist user data efficiently. The implementation of Room was essential for storing academic plans and quiz history within the Smart Learning application.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Development Projects</h2>
+        <div class="grid-container projects-grid">
+            
+            <!-- Project 1 -->
+            <div class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/54Wl9Ey_go8" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">Project 1: Smart Learning (Core Features)</div>
+                    
+                    <div class="project-meta">
+                        <p><span class="meta-label">Problem Statement:</span> Many students struggle to manage their learning activities efficiently due to the lack of a centralized platform for educational resources, self-assessment, and progress tracking. As a result, students often find it difficult to monitor their academic performance, review past learning outcomes, and stay motivated throughout their learning journey.</p>
+                    </div>
+
+                    <div class="card-reflection">
+                        <span class="meta-label" style="display:block; margin-bottom:0.25rem;">Lessons Learned:</span>
+                        Through the development of Smart Learning, I learned how to design and implement a multi-screen Android application using Jetpack Compose and Navigation. I gained hands-on experience in creating educational features such as quiz management, score tracking, quiz history recording, and resource searching while ensuring smooth navigation between screens. This project also enhanced my understanding of user-centered design, application architecture, and the importance of developing digital tools that support SDG 4: Quality Education.
+                    </div>
+
+                    <a href="https://github.com/ptradh-netizen/A214188_RadhiahJamalludin_DrNazatul_Project1" class="btn-github" target="_blank">
+                        View Project 1 Repository
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/1bQBnBddGo4" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">Project 2: Smart Learning (Advanced Features)</div>
+                    
+                    <div class="project-meta">
+                        <p><span class="meta-label">Problem Statement:</span> Students often struggle to maintain a structured study plan and stay motivated while lacking a centralized platform that tracks both local progress and community achievements. Additionally, many learners are unaware of environmental factors, such as poor lighting conditions, which can negatively affect their focus and eye health during long study sessions.</p>
+                    </div>
+
+                    <div class="card-reflection">
+                        <span class="meta-label" style="display:block; margin-bottom:0.25rem;">Lessons Learned:</span>
+                        Through this project, I mastered the integration of a "single source of truth" by combining local data persistence via Room with real-time cloud synchronization using Firebase and Retrofit. I also gained valuable experience in utilizing hardware sensors to improve user well-being and learned how to implement the MVVM architecture to manage complex states in a modern Jetpack Compose application.
+                    </div>
+
+                    <a href="https://github.com/ptradh-netizen/A214188_RadhiahJamalludin_DrNazatul_Project2" class="btn-github" target="_blank">
+                        View Project 2 Repository
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Reflection Section -->
+    <section id="reflection">
+        <h2>Reflection & Learning Journey</h2>
+        <div class="reflection-layout">
+            <p>Developing the Smart Learning application throughout this semester has been a deeply transformative academic experience. I evolved from grasping foundational declarative layouts in Jetpack Compose to orchestrating complex native infrastructures that harmoniously link offline persistence, real-time remote cloud APIs, and physical device sensors. Overcoming configuration synchronization roadblocks drastically enhanced my systematic debugging capabilities, modular architectural literacy via MVVM, and engineering endurance. Moving forward, the software principles mastered in this course lay down a rigorous groundwork for my trajectory in engineering professional, user-centric, and purpose-driven mobile systems.</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills & Tech Stack</h2>
+        <div class="skills-container">
+            <div class="skill-badge">Kotlin</div>
+            <div class="skill-badge">Jetpack Compose</div>
+            <div class="skill-badge">Android SDK</div>
+            <div class="skill-badge">Room Database</div>
+            <div class="skill-badge">Retrofit API</div>
+            <div class="skill-badge">Firebase Firestore</div>
+            <div class="skill-badge">Hardware Sensors (Light/Lux)</div>
+            <div class="skill-badge">MVVM Architecture</div>
+            <div class="skill-badge">Git & GitHub</div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources">
+        <h2>Resources & Credits</h2>
+        <div class="resources-layout">
+            <h3 style="margin-bottom: 0.5rem; color: var(--primary-color);">APIs & Libraries Used</h3>
+            <ul class="resources-list">
+                <li><strong>Jetpack Compose Suite:</strong> For building native modern layouts declaratively.</li>
+                <li><strong>Room Persistence Library:</strong> Local relational mapping abstraction over SQLite.</li>
+                <li><strong>Retrofit (Square Inc.):</strong> Type-safe HTTP client abstraction for loading learning tips.</li>
+                <li><strong>Firebase Android SDK:</strong> Handling cloud storage and remote data streams.</li>
+                <li><strong>Android Hardware Sensor API:</strong> Managing hardware inputs for ambient environmental metrics.</li>
+            </ul>
+            <div class="acknowledgement">
+                <strong>Acknowledgement of AI Assistance:</strong> Generative artificial intelligence utilities were leveraged responsibly throughout development as collaborative peer programming assistants to optimize code refactoring, explain state behavior patterns, troubleshoot runtime dependency mismatches, and refine data documentation.
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Radhiah Binti Jamalludin | Matric: A214188 | Software Engineering e-Portfolio &copy; 2026</p>
+    </footer>
+
+</body>
+</html>
